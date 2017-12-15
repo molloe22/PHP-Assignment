@@ -1,8 +1,5 @@
 <?php
-function getQuery () {
 
-   $parameters = $_POST['testitem'];
-   echo $parameters;
    $html = file_get_contents('https://www.appliancesdelivered.ie/small-appliances/audio/radios'); 
    //get the html returned from the following url
 
@@ -17,16 +14,17 @@ function getQuery () {
 	
 	   $radio_xpath = new DOMXPath($radio_doc);
       
-	   //get all the h2's with an id
-	   $radio_row = $radio_xpath->query("//div[@class='search-results-product row']");
+	   $radio_row = $radio_xpath->query("//a");
 
 	   if($radio_row->length > 0){
 		   foreach($radio_row as $row){	      
 			   echo $row->nodeValue . "<br/>";
 			
 		   }
+	   }else {
+	      echo "Empty";
 	   }
    }
-}
+
 
 ?>
