@@ -14,7 +14,7 @@
 	
 	   $radio_xpath = new DOMXPath($radio_doc);
       
-	   $radio_row = $radio_xpath->query("//a");
+	   $radio_row = $radio_xpath->query("//div[@class='col-xs-12 col-sm-7 col-lg-8]'");
 
 	   if($radio_row->length > 0){
 		   foreach($radio_row as $row){	      
