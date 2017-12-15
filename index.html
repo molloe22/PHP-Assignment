@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html lan="en">
+   <head>
+      <title>My Web Scraper</title>
+      <link rel="stylesheet" type="text/css"href="stylesheet.css"/>
+   </head>
+   <script>
+      function webScrape() {
+         var price = document.getElementById('priceBox');
+         var brand = document.getElementById('brandBox');
+         var type = document.getElementById('typeBox');
+         
+         $.ajax({
+            type:'POST',
+            url:'scraper.php',
+            data:{parameters: [price, brand, type]},
+            success: function(response) {
+               $("#getQuery()").html(response);
+            }
+         });
+      }
+   </script>
+   <body>
+      <div id = "container">
+         <div id="header">
+            <h1>My Web Scraper</h1>
+         </div>
+         <nav>
+            <ul>
+               <li><a href="index.html"><b>Home</b></a></li>
+               <li><a href="login/login.html">Login</a></li>
+            </ul>
+         </nav>
+         <div id = "main">
+            <div id="scraper"><a href="/scraper.php">Click here to scrape</a></div>
+            <div id="options">
+               <form id="customization" action="scraper.php" method="post">
+                  <h3 align="center">Customise Search:</h3>
+                  
+                  <fieldset>
+                     <input id="priceBox" placeholder="Max Price..." type="price" tabindex="1">
+                  </fieldset>
+                  
+                  <fieldset>
+                     <input id="brandBox" placeholder="Brand..." type="brand" tabindex="2">
+                  </fieldset>
+                  
+                  <fieldset>
+                     <input id="typeBox" placeholder="Type..." type="type" tabindex="3">
+                  </fieldset>
+                  
+                  <fieldset>
+                     <button name="submit" type="submit" id="search" data-submit="Searching..." onclick=webScrape()>Search</button>
+                  </fieldset>
+               </form>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>
+         
