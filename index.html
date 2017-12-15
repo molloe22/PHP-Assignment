@@ -13,9 +13,9 @@
          $.ajax({
             type:'POST',
             url:'scraper.php',
-            data:{parameters: [price, brand, type]},
+            data:{testitem: document.getElementById('brandBox')},
             success: function(response) {
-               $("#getQuery()").html(response);
+               $("#getQuery").html(response);
             }
          });
       }

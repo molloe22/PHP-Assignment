@@ -1,6 +1,8 @@
 <?php
 function getQuery () {
-   $parameters=$_POST['parameters'];
+
+   $parameters = $_POST['testitem'];
+   echo $parameters;
    $html = file_get_contents('https://www.appliancesdelivered.ie/small-appliances/audio/radios'); 
    //get the html returned from the following url
 
